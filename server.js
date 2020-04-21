@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const port = process.env.port || 3000;
 const cors = require('cors');
 const todosController = require("./controllers/todosController");
+const apiController = require("./controllers/apiController");
 app.use(cors());
 app.use(express.json());
 require('dotenv').config();
@@ -17,7 +18,7 @@ app.listen(port,()=>{
 
 // GET method route
 todosController(app);
-
+apiController(app);
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
